@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript App</title>
+    <link rel="stylesheet" href="{% static 'transcript_app/css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>🎙️ Transcript App</h1>
+
+    <!-- Upload Card -->
+    <div class="card">
+        <div class="tabs">
+            <button class="tab active" id="tab-file" onclick="switchTab('file')">📁 File Upload</button>
+            <button class="tab" id="tab-youtube" onclick="switchTab('youtube')">▶️ YouTube URL</button>
+        </div>
+
+        <!-- Language Select -->
+        <select id="language" class="lang-select">
+            <option value="hi">🇮🇳 Hindi</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ur">Urdu</option>
+            <option value="bn">Bengali</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="mr">Marathi</option>
+            <option value="gu">Gujarati</option>
+            <option value="pa">Punjabi</option>
+        </select>
+
+        <!-- File Upload Tab -->
+        <div id="file-tab">
+            <input type="file" id="audio-file" accept="audio/*,video/*">
+            <p class="hint-text">MP3, WAV, MP4, M4A supported</p>
+        </div>
+
+        <!-- YouTube Tab -->
+        <div id="youtube-tab" style="display:none;">
+            <input type="text" id="youtube-url" placeholder="YouTube URL paste karo... https://www.youtube.com/watch?v=...">
+        </div>
+
+        <button class="btn" id="upload-btn" onclick="uploadTranscript()">🚀 Transcript Banao</button>
+
+        <!-- Status Box -->
+        <div class="status-box" id="status-box" style="display:none;">
+            <span id="status-text"></span>
+        </div>
+
+        <!-- Result Box -->
+        <div class="result-box" id="result-box" style="display:none;">
+            <h3>📝 Full Transcript:</h3>
+            <p id="full-text"></p>
+        </div>
+
+        <!-- Export Buttons -->
+        <div class="export-btns" id="export-btns" style="display:none;">
+            <button class="export-btn" onclick="exportTranscript('txt')">📄 TXT</button>
+            <button class="export-btn" onclick="exportTranscript('srt')">🎬 SRT</button>
+            <button class="export-btn" onclick="exportTranscript('json')">📊 JSON</button>
+        </div>
+
+        <!-- Segments -->
+        <div class="segments-box" id="segments-box" style="display:none;">
+            <h3>⏱️ Segments (Timestamps ke saath):</h3>
+            <div id="segments-list"></div>
+        </div>
+    </div>
+
+    <!-- History Card -->
+    <div class="card">
+        <h3 class="history-title">📋 Transcript History</h3>
+        <div class="history" id="history-list">Loading...</div>
+    </div>
+</div>
+
+<script src="{% static 'transcript_app/js/main.js' %}"></script>
+</body>
+</html>

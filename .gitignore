@@ -1,0 +1,8 @@
+condaenv/
+venv/
+__pycache__/
+*.pyc
+media/
+staticfiles/
+.env
+db.sqlite3

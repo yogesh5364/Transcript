@@ -1,0 +1,15 @@
+conda activate D:\Projects\transcript\condaenv
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py runserver
+
+D:\Redis\redis-server.exe
+
+D:\Redis\redis-cli.exe ping
+
+celery -A core worker --loglevel=info --pool=solo (Not used)
+
+celery -A core worker --loglevel=info --pool=solo --max-tasks-per-child=1
