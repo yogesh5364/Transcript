@@ -1,0 +1,11 @@
+celery==5.2.7
+Django==5.2.15
+django_celery_results==2.6.0
+djangorestframework==3.17.1
+faster-whisper==1.2.1
+psycopg2-binary==2.9.12
+redis==4.6.0
+torch==2.1.0+cpu
+yt-dlp==2026.6.9
+numpy<2
+pyngrok
